@@ -17,10 +17,11 @@ static int shm_fd;
 struct buffer *shm_buffer;
 static sem_t *shm_mutex;
 
+// some kind of ring buffer of strings
 struct buffer {
-	int pcount;
-	int begin;
-	int end;
+	int pcount; // number of processes that have opend the buffer
+	int begin;  // index of string that is first
+	int end;    // index of last string 
 	char strings[BUF_STRNUM][BUF_STRLEN];
 };
 
@@ -64,7 +65,7 @@ int open_shm_buffer(void)
 	return 0;
 }
 
-void close_buffer(void)
+void close_shm_buffer(void)
 {
 	if (!shm_buffer)
 		return;

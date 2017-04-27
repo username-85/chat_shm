@@ -72,7 +72,7 @@ int main(void)
 
 	send_msg("offline");
 
-	close_buffer();
+	close_shm_buffer();
 	term_deinit();
 
 	exit(EXIT_SUCCESS);
