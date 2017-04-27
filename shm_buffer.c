@@ -21,7 +21,7 @@ static sem_t *shm_mutex;
 struct buffer {
 	int pcount; // number of processes that have opend the buffer
 	int begin;  // index of string that is first
-	int end;    // index of last string 
+	int end;    // index of last string
 	char strings[BUF_STRNUM][BUF_STRLEN];
 };
 
